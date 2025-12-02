@@ -1,9 +1,3 @@
--- ======= 不要再看我的源码了😭 =======
--- ======= 再看我就真的哭了😭 =======
--- ======= 求求别再看了😭 =======
--- ======= 这是我用工作室的血汗钱做的呀😭 =======
--- ======= 求求缝和小鬼不要抄我的源码😭 ========
-
 -- =======<仇人>======= 
 if game.Players.LocalPlayer.Name == "pro_xx863" or game.Players.LocalPlayer.Name == "edc12363" or game.Players.LocalPlayer.Name == "onygfvjop" or game.Players.LocalPlayer.Name == "ah_kdj3" or game.Players.LocalPlayer.Name == "luoyang100616" or game.Players.LocalPlayer.Name == "hdjdje675" or game.Players.LocalPlayer.Name == "qazwsxuruu" or game.Players.LocalPlayer.Name == "ADCZ4xx" or game.Players.LocalPlayer.Name == "TM5418888" or game.Players.LocalPlayer.Name == "codm656558" then
     game.Players.LocalPlayer:Kick("Kick.🤬我们工作室🤬不欢迎您使用脚本🤬")
