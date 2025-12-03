@@ -216,7 +216,7 @@ end
       DropShadow.BackgroundTransparency = 1.000
       DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
       DropShadow.Size = UDim2.new(1, 10, 1, 10)
-      DropShadow.Image = "rbxassetid://133505315200130" --背景
+      DropShadow.Image = "rbxassetid://133505315200130" --脚本菜单背景图
       DropShadow.ImageColor3 = Color3.fromRGB(255,255,255)
       DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
@@ -484,7 +484,7 @@ UIG.Parent = Open
         TabIco.BackgroundTransparency = 1.000
         TabIco.BorderSizePixel = 0
         TabIco.Size = UDim2.new(0, 24, 0, 24)
-        TabIco.Image = "rbxassetid://7733765398" or icon and "rbxassetid://"..icon --Tab选项贴花
+        TabIco.Image = "rbxassetid://7733765398" or icon and "rbxassetid://7733765398"..icon --Tab选项贴花
         TabIco.ImageTransparency = 0.2
         
         TabText.Name = "TabText"
