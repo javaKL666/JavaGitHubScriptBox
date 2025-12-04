@@ -216,7 +216,6 @@ local MelonFE = win:Tab("MelonFE","7733779610") -- 左侧边栏分类
 local hitbox = win:Tab("范围","7733779610") -- 左侧边栏分类
 local PictureToLightShadow = win:Tab("画质与光影","7733992604") -- 左侧边栏分类
 local PlayerRotation = win:Tab("人物旋转","7733779610") -- 左侧边栏分类
-local SuperRing = win:Tab("黑洞","7733992604") -- 左侧边栏分类
 local Robux = win:Tab("Robux","7733992604") -- 左侧边栏分类
 local hack = win:Tab("黑客","7733992604") -- 左侧边栏分类
 local Kid = win:Tab("儿子","7733992604") -- 左侧边栏分类
@@ -231,7 +230,6 @@ local NaturalDisasterSurvival = win:Tab("自然灾害","7733992604") -- 左侧�
 
 local about = Information:section("信息类",true) -- 分类内功能分类
 
-about("当前时间: " .. os.date("%H:%M:%S"))
 about:Label("您的注入器:" ..identifyexecutor())
 print("注入器: "..identifyexecutor())
 about:Label("您的用户名:" .. game.Players.LocalPlayer.Name .. " ")
@@ -4636,7 +4634,7 @@ about:Label("儿子过来")
 about:Label("待在这里")
 about:Label("不要盯我")
 
-local about = BackDoor:section("后门",true)
+local about = BackDoor:section("后门执行器",true)
 
 about:Button("LALOL-Hub",function() -- （单点类）
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Its-LALOL/LALOL-Hub/main/Backdoor-Scanner/script'))()
@@ -4646,14 +4644,9 @@ about:Button("BackDoor.exe V6",function() -- （单点类）
     loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/v6x/source.lua"))()
 end)
 
-about:Button("鬼怪后门",function() -- （单点类）
-    loadstring(game:HttpGet("https://pastebin.com/raw/adceDwMv"))()
-end)
-
 about:Button("CET",function() -- （单点类）
     loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Executor-Tests/refs/heads/main/Environment/Test.lua"))()
 end)
-
 
 local about = InfiniteyieldCommand:section("Infinite yield",true)
 
@@ -5351,16 +5344,6 @@ task.spawn(function()
       wait(1)
     end
   end)
-  
-local about = SuperRing:section("黑洞",true) -- 分类内功能分类
-
-about:Button("Super ring v1",function() -- （单点类）
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V1.lua"))()   
-end)
-
-about:Button("Super ring v3",function() -- （单点类）
-    
-end)
 
 local about = NaturalDisasterSurvival:section("自然灾害",true) -- 分类内功能分类
 
@@ -5589,7 +5572,7 @@ spawn(animateOutline)
 RS:BindToRenderStep(name, 1, step)
 end)
 
-local about = NaturalDisasterSurvival:section("传送", true)
+local about = NaturalDisasterSurvival:section("传送", true) -- 分类内功能分类
 
 about:Button("地图",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-68.1344452, 53.1492348, -7.29726553, -0.813139081, -0.186660677, 0.551328003, 0, 0.947185993, 0.320684612, -0.582069337, 0.260761201, -0.770194054)
@@ -5603,7 +5586,7 @@ about:Button("秘密基地",function() -- （单点类）
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5052.53857, 271.877899, 6070.04834, -0.768330097, -0.357614934, 0.530829966, 0, 0.82935214, 0.55872637, -0.640053809, 0.429286301, -0.63721621)    
 end)
 
-local about = NaturalDisasterSurvival:section("移除灾难", true)
+local about = NaturalDisasterSurvival:section("移除灾难", true) -- 分类内功能分类
 
 about:Button("移除灾难界面-沙尘暴",function()
 game.Players.LocalPlayer.PlayerGui.BlizzardGui:destroy()
@@ -5615,4 +5598,38 @@ end)
 
 about:Button("移除灾难界面-龙卷风",function()
 game.Players.LocalPlayer.PlayerGui.TornadoGui:destroy()
+end)
+
+local about = NaturalDisasterSurvival:section("黑洞脚本", true) -- 分类内功能分类
+
+about:Button("超级环 v1",function() -- （单点类）
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V1.lua"))()   
+end)
+
+about:Button("超级环 v3",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V3.lua"))()
+end)
+
+about:Button("超级环 v4",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V4.lua"))()
+end)
+
+about:Button("超级环 v5",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V5.lua"))()
+end)
+
+about:Button("超级环 v6",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V6.lua"))()
+end)
+
+about:Button("双环控制 v1",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Double-Ring-V1.lua"))()
+end)
+
+about:Button("磁铁环 v2",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Magnet-Ring-V2.lua"))()
+end)
+
+about:Button("哥特风环 v1",function() -- （单点类）
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Gothic-Ring-V1.lua"))()
 end)
