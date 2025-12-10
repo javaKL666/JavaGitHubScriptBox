@@ -1077,7 +1077,7 @@ UIG.Parent = Open
             
             SliderValue.Name = "SliderValue"
             SliderValue.Parent = SliderValBG
-            SliderValue.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            SliderValue.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
             SliderValue.BackgroundTransparency = 1.000
             SliderValue.BorderSizePixel = 0
             SliderValue.Size = UDim2.new(1, 0, 1, 0)
@@ -1095,7 +1095,7 @@ UIG.Parent = Open
             MinSlider.Size = UDim2.new(0, 20, 0, 20)
             MinSlider.Font = Enum.Font.Gotham
             MinSlider.Text = "-"
-            MinSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
+            MinSlider.TextColor3 = Color3.fromRGB(255, 0, 0)
             MinSlider.TextSize = 24.000
             MinSlider.TextWrapped = true
             
@@ -1109,7 +1109,7 @@ UIG.Parent = Open
             AddSlider.Size = UDim2.new(0, 20, 0, 20)
             AddSlider.Font = Enum.Font.Gotham
             AddSlider.Text = "+"
-            AddSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
+            AddSlider.TextColor3 = Color3.fromRGB(0, 0, 255)
             AddSlider.TextSize = 24.000
             AddSlider.TextWrapped = true
             
