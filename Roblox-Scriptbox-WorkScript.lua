@@ -1,14 +1,253 @@
--- =======<拿我源码都是死浮木>=======
-
--- =======<仇人>======= 
-if game.Players.LocalPlayer.Name == "pro_xx863" or game.Players.LocalPlayer.Name == "edc12363" or game.Players.LocalPlayer.Name == "onygfvjop" or game.Players.LocalPlayer.Name == "ah_kdj3" or game.Players.LocalPlayer.Name == "luoyang100616" or game.Players.LocalPlayer.Name == "hdjdje675" or game.Players.LocalPlayer.Name == "qazwsxuruu" or game.Players.LocalPlayer.Name == "ADCZ4xx" or game.Players.LocalPlayer.Name == "TM5418888" or game.Players.LocalPlayer.Name == "codm656558" then
-    game.Players.LocalPlayer:Kick("Kick.🤬我们工作室🤬不欢迎您使用脚本🤬")
-    end
+-- =======<Kick>=======  
+local bannedlist = {
+      "pro_xx863",  -- BS黑洞中心作者
+      },
+ game:GetService("Players").PlayerAdded:Connect(function(player)
+      for i, v in pairs(bannedlist) do 
+          if player.Name == v then  
+              player:Kick("你已被此体验屏蔽。 审核信息： \n\nStop Exploiting.  \n（错误代码： 600）") 
+          end
+      end
+ end)
     
 -- =======<自动发送消息>=======   
---[[
-local TextChatService = game:GetService("TextChatService") local ReplicatedStorage = game:GetService("ReplicatedStorage") local function SendChatMessage(message) if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then local textChannel = TextChatService.TextChannels.RBXGeneral textChannel:SendAsync(message) else ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All") end end SendChatMessage("Welcome!!! 使用工脚本")
---]]
+local TextChatService = game:GetService("TextChatService") local ReplicatedStorage = game:GetService("ReplicatedStorage") local function SendChatMessage(message) if TextChatService.ChatVersion == Enum.ChatVersion.TextChatService then local textChannel = TextChatService.TextChannels.RBXGeneral textChannel:SendAsync(message) else ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All") end end SendChatMessage("欢迎使用工脚本")
+
+
+-- =======<公告>=======
+
+local Gui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local AgreeButton = Instance.new("TextButton")
+local AgreeUICorner = Instance.new("UICorner")
+local PhotoLabel = Instance.new("ImageLabel")
+local CloseButton = Instance.new("TextButton")
+local CloseUICorner = Instance.new("UICorner")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+
+-- 设置主GUI
+Gui.Name = "TaShaScriptUI"
+Gui.Parent = game.CoreGui
+Gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Gui.ResetOnSpawn = false
+
+-- 主框架
+Frame.Parent = Gui
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.15, 0, 0.075, 0)
+Frame.Size = UDim2.new(0.7, 0, 0.8, 0)
+Frame.ClipsDescendants = true
+
+-- 圆角
+UICorner.Parent = Frame
+UICorner.CornerRadius = UDim.new(0, 12)
+
+-- 标题栏
+local TitleBar = Instance.new("Frame")
+TitleBar.Name = "TitleBar"
+TitleBar.Parent = Frame
+TitleBar.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+TitleBar.BorderSizePixel = 0
+TitleBar.Size = UDim2.new(1, 0, 0.08, 0)
+
+local TitleCorner = Instance.new("UICorner")
+TitleCorner.Parent = TitleBar
+TitleCorner.CornerRadius = UDim.new(0, 12)
+
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Parent = TitleBar
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Position = UDim2.new(0.02, 0, 0, 0)
+TitleLabel.Size = UDim2.new(0.5, 0, 1, 0)
+TitleLabel.Font = Enum.Font.GothamBold
+TitleLabel.Text = "工脚本"
+TitleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+TitleLabel.TextSize = 18
+TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+-- 图片标签 - 已更新为指定图片
+PhotoLabel.Parent = Frame
+PhotoLabel.Image = "rbxassetid://131499184387795"
+PhotoLabel.ImageTransparency = 0
+PhotoLabel.Position = UDim2.new(0.027, 0, 0.1, 0)
+PhotoLabel.Size = UDim2.new(0.47, 0, 0.75, 0)
+PhotoLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+PhotoLabel.BorderSizePixel = 0
+PhotoLabel.ScaleType = Enum.ScaleType.Fit  -- 确保图片适应框架
+
+local PhotoCorner = Instance.new("UICorner")
+PhotoCorner.Parent = PhotoLabel
+PhotoCorner.CornerRadius = UDim.new(0, 10)
+
+local PhotoStroke = Instance.new("UIStroke")
+PhotoStroke.Parent = PhotoLabel
+PhotoStroke.Color = Color3.fromRGB(80, 80, 90)
+PhotoStroke.Thickness = 2
+
+-- 同意按钮
+AgreeButton.Parent = Frame
+AgreeButton.BackgroundColor3 = Color3.fromRGB(86, 164, 254)
+AgreeButton.Position = UDim2.new(0.548, 0, 0.83, 0)
+AgreeButton.Size = UDim2.new(0.4, 0, 0.1, 0)
+AgreeButton.AutoButtonColor = false
+AgreeButton.Text = "关闭此公告"
+AgreeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+AgreeButton.Font = Enum.Font.GothamBold
+AgreeButton.TextSize = 18
+
+AgreeUICorner.Parent = AgreeButton
+AgreeUICorner.CornerRadius = UDim.new(0, 8)
+
+local AgreeStroke = Instance.new("UIStroke")
+AgreeStroke.Parent = AgreeButton
+AgreeStroke.Color = Color3.fromRGB(120, 180, 255)
+AgreeStroke.Thickness = 2
+
+-- 关闭按钮
+CloseButton.Parent = TitleBar
+CloseButton.BackgroundColor3 = Color3.fromRGB(220, 70, 70)
+CloseButton.Position = UDim2.new(0.94, 0, 0.15, 0)
+CloseButton.Size = UDim2.new(0.05, 0, 0.7, 0)
+CloseButton.AutoButtonColor = false
+CloseButton.Text = "×"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextSize = 20
+
+CloseUICorner.Parent = CloseButton
+CloseUICorner.CornerRadius = UDim.new(0, 6)
+
+-- 滚动框架
+ScrollingFrame.Parent = Frame
+ScrollingFrame.Position = UDim2.new(0.52, 0, 0.13, 0)
+ScrollingFrame.Size = UDim2.new(0.477, 0, 0.7, 0)
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+ScrollingFrame.BackgroundTransparency = 0
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 2, 0)
+ScrollingFrame.ScrollBarThickness = 5
+ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 120)
+
+local ScrollCorner = Instance.new("UICorner")
+ScrollCorner.Parent = ScrollingFrame
+ScrollCorner.CornerRadius = UDim.new(0, 8)
+
+local ScrollStroke = Instance.new("UIStroke")
+ScrollStroke.Parent = ScrollingFrame
+ScrollStroke.Color = Color3.fromRGB(80, 80, 90)
+ScrollStroke.Thickness = 2
+
+-- 文本标签
+TextLabel.Parent = ScrollingFrame
+TextLabel.Size = UDim2.new(1, -20, 2, 0)
+TextLabel.Position = UDim2.new(0, 10, 0, 10)
+TextLabel.Text = [[
+欢迎使用工脚本
+=====介绍======
+作者: TheHunterSolo1
+作者QQ: 3850851895
+副作者: (没有)
+本次更新了很多🤓自行探索😏
+=====更新内容======
++ 添加了公告页面
++ 添加了修改高度
++ 添加了玩家生命值上限
+- 移除了娱乐类
+- 移除了屏幕北京时间
+]]
+TextLabel.TextSize = 16
+TextLabel.TextWrapped = true
+TextLabel.Font = Enum.Font.Gotham
+TextLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+TextLabel.BackgroundTransparency = 1
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.TextYAlignment = Enum.TextYAlignment.Top
+
+-- 文本框
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+TextBox.Position = UDim2.new(0.6, 0, 0.05, 0)
+TextBox.Size = UDim2.new(0.3, 0, 0.05, 0)
+TextBox.Font = Enum.Font.Gotham
+TextBox.PlaceholderText = "输入公告内容..."
+TextBox.Text = "公告"
+TextBox.TextColor3 = Color3.fromRGB(220, 220, 220)
+TextBox.TextSize = 16
+TextBox.ClearTextOnFocus = false
+
+local TextBoxUICorner = Instance.new("UICorner")
+TextBoxUICorner.Parent = TextBox
+TextBoxUICorner.CornerRadius = UDim.new(0, 6)
+
+local TextBoxUIStroke = Instance.new("UIStroke")
+TextBoxUIStroke.Parent = TextBox
+TextBoxUIStroke.Thickness = 1
+TextBoxUIStroke.Color = Color3.fromRGB(80, 80, 90)
+
+-- 按钮交互效果
+local function buttonHoverEffect(button, hoverColor, originalColor)
+    button.MouseEnter:Connect(function()
+        game:GetService("TweenService"):Create(
+            button,
+            TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            {BackgroundColor3 = hoverColor}
+        ):Play()
+    end)
+    
+    button.MouseLeave:Connect(function()
+        game:GetService("TweenService"):Create(
+            button,
+            TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            {BackgroundColor3 = originalColor}
+        ):Play()
+    end)
+    
+    button.MouseButton1Down:Connect(function()
+        game:GetService("TweenService"):Create(
+            button,
+            TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            {BackgroundColor3 = Color3.fromRGB(
+                originalColor.R * 0.7,
+                originalColor.G * 0.7,
+                originalColor.B * 0.7
+            )}
+        ):Play()
+    end)
+    
+    button.MouseButton1Up:Connect(function()
+        game:GetService("TweenService"):Create(
+            button,
+            TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            {BackgroundColor3 = hoverColor}
+        ):Play()
+    end)
+end
+
+-- 应用按钮效果
+buttonHoverEffect(AgreeButton, Color3.fromRGB(96, 174, 264), Color3.fromRGB(86, 164, 254))
+buttonHoverEffect(CloseButton, Color3.fromRGB(240, 90, 90), Color3.fromRGB(220, 70, 70))
+
+-- 按钮功能
+CloseButton.MouseButton1Click:Connect(function()
+    Gui:Destroy()
+end)
+
+AgreeButton.MouseButton1Click:Connect(function()
+    Gui:Destroy()
+    runScript()
+end)
+
+Frame.Position = UDim2.new(0.15, 0, -1, 0)
+Frame.Visible = true
+game:GetService("TweenService"):Create(
+    Frame,
+    TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out),
+    {Position = UDim2.new(0.15, 0, 0.075, 0)}
+):Play()
 
 print("工助手帮你开了禁Afk")
 		local vu = game:GetService("VirtualUser")
@@ -54,7 +293,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795",
     Callback = bindable,
     Button1 = "谢谢🤓",
-    Button2 = "掉!!!!!!!!!"
+    Button2 = "掉!😏"
 })
 
 wait (1.5)
@@ -75,7 +314,7 @@ wait (1.5)
 -- =======<播放Revenant左边右侧栏通知>=======
 local RevenantNotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Revenant", true))()
 
-RevenantNotificationLibrary.DefaultColor = Color3.fromRGB(5,20,255)
+RevenantNotificationLibrary.DefaultColor = Color3.fromRGB(255,255,0)
 
 RevenantNotificationLibrary:Notification({
     Text = "工脚本作者 : TheHunterSolo1",
@@ -116,9 +355,9 @@ NotifiCationLibrary:SendNotification("Success", "工脚本Bata1.2🟩", 5)
 local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))() 
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
         
--- =======<加载ui库>=======
-local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/JavaGitHubScriptBox/refs/heads/main/Roblox-Github-Work-Script-ui.lua"))()
-local win = ui:new("工脚本")
+-- =======<加载uiLibrary库>=======
+local uiLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/WorkScriptBox/refs/heads/main/Roblox-Github-Work-Script-ui.lua"))()
+local win = uiLibrary:new("工脚本")
 
 -- =======<播放音效-旧音效>=======
 local Sound = Instance.new("Sound")
@@ -140,37 +379,49 @@ local Sound = Instance.new("Sound")
  --]]
  
 -- =======<添加Tab选项>=======
-local Information = win:Tab("信息类","7733765398") -- 左侧边栏分类
-local announcement = win:Tab("公告类","7733765398") -- 左侧边栏分类
-local main = win:Tab("通用类","7733765398") -- 左侧边栏分类
-local tools = win:Tab("工具类","7733765398") -- 左侧边栏分类
-local ScriptHub = win:Tab("脚本中心","7733765398") -- 左侧边栏分类
-local TeleportPlayerToflings = win:Tab("传送与甩飞","7733765398") -- 左侧边栏分类
-local Tube9178 = win:Tab("刀子🔪类","7733765398") -- 左侧边栏分类
-local AimbotToBulleTtracking = win:Tab("自瞄与子弹","7733765398") -- 左侧边栏分类
-local Action = win:Tab("动作类","7733765398") -- 左侧边栏分类
-local esp = win:Tab("ESP类","7733765398") -- 左侧边栏分类
-local music = win:Tab("音乐类","7733765398") -- 左侧边栏分类
-local fling = win:Tab("甩飞类","7733765398") -- 左侧边栏分类
-local vr = win:Tab("vr","7733765398") -- 左侧边栏分类
-local GenesisFE = win:Tab("创世纪FE","7733765398") -- 左侧边栏分类
-local MelonFE = win:Tab("MelonFE","7733765398") -- 左侧边栏分类
-local hitbox = win:Tab("范围","7733765398") -- 左侧边栏分类
-local shadow = win:Tab("光影","7733765398") -- 左侧边栏分类
-local PlayerRotation = win:Tab("人物旋转","7733779610") -- 左侧边栏分类
-local Robux = win:Tab("Robux","7733765398") -- 左侧边栏分类
-local hack = win:Tab("黑客","7733765398") -- 左侧边栏分类
-local Kid = win:Tab("儿子","7733765398") -- 左侧边栏分类
-local Time = win:Tab("时间","7733765398") -- 左侧边栏分类
-local BackDoor = win:Tab("后门","7733765398") -- 左侧边栏分类
-local InfiniteyieldCommand = win:Tab("指令","7733765398") -- 左侧边栏分类
-local Executant = win:Tab("注入器","7733765398") -- 左侧边栏分类
+local Information = win:Tab("信息类","7733765398") 
+local announcement = win:Tab("公告类","7733765398") 
+local main = win:Tab("通用类","7733765398") 
+local tools = win:Tab("工具类","7733765398") 
+local ScriptHub = win:Tab("脚本中心","7733765398") 
+local TeleportPlayerToflings = win:Tab("传送与甩飞","7733765398") 
+local Tube9178 = win:Tab("刀子🔪类","7733765398") 
+local AimbotToBulleTtracking = win:Tab("自瞄与子弹","7733765398") 
+local Action = win:Tab("动作类","7733765398") 
+local esp = win:Tab("ESP类","7733765398") 
+local music = win:Tab("音乐类","7733765398") 
+local fling = win:Tab("甩飞类","7733765398") 
+local vr = win:Tab("vr","7733765398") 
+local GenesisFE = win:Tab("创世纪FE","7733765398") 
+local MelonFE = win:Tab("MelonFE","7733765398") 
+local hitbox = win:Tab("范围","7733765398") 
+local shadow = win:Tab("光影","7733765398") 
+local PlayerRotation = win:Tab("人物旋转","7733779610") 
+local Robux = win:Tab("Robux","7733765398") 
+local hack = win:Tab("黑客","7733765398") 
+local Kid = win:Tab("儿子","7733765398") 
+local Time = win:Tab("时间","7733765398") 
+local BackDoor = win:Tab("后门","7733765398") 
+local InfiniteyieldCommand = win:Tab("指令","7733765398") 
+local Executant = win:Tab("注入器","7733765398") 
 
 -- =======<游戏列表>=======
 
-local NaturalDisasterSurvival = win:Tab("自然灾害","7733765398") -- 左侧边栏分类
+local NaturalDisasterSurvival = win:Tab("自然灾害","7733765398") 
 
-local about = Information:section("信息类",true) -- 分类内功能分类
+local about = Information:section("信息类",true) 
+local function RainbowFont(label)
+local hue = 0
+spawn(function()
+while true do
+hue = (hue + 1) % 360
+wait(0.1)
+pcall(function()
+label.TextColor3 = Color3.fromHSV(hue/360, 0.8, 0.9)
+end)
+end
+end)
+end
 
 about:Label("您的注入器:" ..identifyexecutor())
 print("注入器: "..identifyexecutor())
@@ -213,34 +464,10 @@ else
 print("玩家会员状态： 否")
 end
 
-about:Button("摧毁ui", function()
-    local coreGui = game:GetService("CoreGui")
-    local targetGui = coreGui:FindFirstChild("frosty")
-    if targetGui then
-        targetGui:Destroy()
-    end
-end)
-
-about:Toggle("缩小ui", "UIScale", false, function(state)
-    local scale = state and 0.965 or 1
-    local coreGui = game:GetService("CoreGui")
-    local targetGui = coreGui:FindFirstChild("frosty")
-    if not targetGui then return end
-    local mainWindow = targetGui:FindFirstChild("Main")
-    if not mainWindow then return end
-    if not mainWindow:FindFirstChild("OriginalSize") then
-        local originalSize = Instance.new("Vector3Value")
-        originalSize.Name = "OriginalSize"
-        originalSize.Value = Vector3.new(mainWindow.Size.X.Offset, mainWindow.Size.Y.Offset, 0)
-        originalSize.Parent = mainWindow
-    end
-    mainWindow.Size = UDim2.new(0, mainWindow.OriginalSize.Value.X * scale, 0, mainWindow.OriginalSize.Value.Y * scale)
-end)
-
 print("加载Tab所有选项")
 print("所有信息加载完毕^o^")
 
-local about = Information:section("复制",true) -- 分类内功能分类
+local about = Information:section("复制",true) 
 
 about:Button("复制服务器名称", function()
     local serverName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
@@ -266,7 +493,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制自己的账号id",function() -- （单点类）
+about:Button("复制自己的账号id",function() 
     local UserId = game.Players.LocalPlayer.UserId
     setclipboard(UserId)
     local CoreGui = game:GetService("StarterGui")
@@ -278,7 +505,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制自己的用户名",function() -- （单点类）
+about:Button("复制自己的用户名",function() 
     local userName = game.Players.LocalPlayer.Name
     setclipboard(userName)
     local CoreGui = game:GetService("StarterGui")
@@ -290,7 +517,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制自己的昵称",function() -- （单点类）
+about:Button("复制自己的昵称",function() 
     local DisplayName = game.Players.LocalPlayer.DisplayName
     setclipboard(DisplayName)
     local CoreGui = game:GetService("StarterGui")
@@ -302,27 +529,103 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = Information:section("工脚本",true) -- 分类内功能分类
+local about = Information:section("工脚本",true) 
 
-about:Button("玩家退加游戏提示",function() -- （单点类）
+about:Button("玩家退加游戏提示",function() 
     game.Players.ChildAdded:Connect(function(player) local success, errorMessage = pcall(function() NotificationLibrary:SendNotification("Success", player.Name .. " 🟩加入了游戏🟩", 4) end) if not success then print("Error: " .. errorMessage) end end) game.Players.ChildRemoved:Connect(function(player) local success, errorMessage = pcall(function() NotificationLibrary:SendNotification("Error", player.Name.. " 🟥离开了游戏🟥", 4) end) if not success then print("Error: "  .. errorMessage) end end)
 end)
 
-local about = announcement:section("公告类",true) -- 分类内功能分类
-local function RainbowFont(label)
-local hue = 0
-spawn(function()
-while true do
-hue = (hue + 1) % 360
-wait(0.1)
-pcall(function()
-label.TextColor3 = Color3.fromHSV(hue/360, 0.8, 0.9)
-end)
+about:Button("北京时间",function() -- (单点类)
+local LBLG = Instance.new("ScreenGui")
+local LBL = Instance.new("TextLabel")
+local PlayerLabel = Instance.new("TextLabel")
+local player = game.Players.LocalPlayer
+
+LBLG.Name = "LBLG"
+LBLG.Parent = game.CoreGui
+LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LBLG.Enabled = true
+
+LBL.Name = "LBL"
+LBL.Parent = LBLG
+LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+LBL.BackgroundTransparency = 1
+LBL.BorderColor3 = Color3.new(0, 0, 0)
+LBL.Position = UDim2.new(0, 5, 0, 10)
+LBL.Size = UDim2.new(0, 250, 0, 35)
+LBL.Font = Enum.Font.GothamSemibold
+LBL.Text = "时间:加载中..."
+LBL.TextColor3 = Color3.new(1, 1, 1)
+LBL.TextScaled = false
+LBL.TextSize = 16
+LBL.TextWrapped = false
+LBL.Visible = true
+LBL.TextXAlignment = Enum.TextXAlignment.Left
+LBL.TextYAlignment = Enum.TextYAlignment.Top
+LBL.ZIndex = 10
+
+LBL.TextSize = 16
+LBL.Size = UDim2.new(0, 150, 0, 50)
+LBL.Position = UDim2.new(0, 10, 0, 10)
+LBL.TextXAlignment = Enum.TextXAlignment.Right
+
+local Heartbeat = game:GetService("RunService").Heartbeat
+local LastIteration, Start
+local FrameUpdateTable = { }
+
+local function HeartbeatUpdate()
+    LastIteration = tick()
+    for Index = #FrameUpdateTable, 1, -1 do
+        FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+    end
+    FrameUpdateTable[1] = LastIteration
+    local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+    CurrentFPS = CurrentFPS - CurrentFPS % 1
+    
+    local hue = tick() % 5 / 5
+    local r = math.sin(hue * 6.28 + 0) * 127 + 128
+    local g = math.sin(hue * 6.28 + 2) * 127 + 128
+    local b = math.sin(hue * 6.28 + 4) * 127 + 128
+    local color = Color3.fromRGB(r, g, b)
+    
+    LBL.Text = ("北京时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+    LBL.TextColor3 = color
+    PlayerLabel.TextColor3 = color
 end
+ 
+Start = tick()
+Heartbeat:Connect(HeartbeatUpdate)
 end)
-end
-local versionLabel = about:Label("工脚本")
-RainbowFont(versionLabel)
+
+local about = Information:section("ui设置",true) 
+
+about:Button("摧毁ui", function()
+    local coreGui = game:GetService("CoreGui")
+    local targetGui = coreGui:FindFirstChild("frosty")
+    if targetGui then
+        targetGui:Destroy()
+    end
+end)
+
+about:Toggle("缩小ui框架", "UIScale", false, function(state)
+    local scale = state and 0.965 or 1
+    local coreGui = game:GetService("CoreGui")
+    local targetGui = coreGui:FindFirstChild("frosty")
+    if not targetGui then return end
+    local mainWindow = targetGui:FindFirstChild("Main")
+    if not mainWindow then return end
+    if not mainWindow:FindFirstChild("OriginalSize") then
+        local originalSize = Instance.new("Vector3Value")
+        originalSize.Name = "OriginalSize"
+        originalSize.Value = Vector3.new(mainWindow.Size.X.Offset, mainWindow.Size.Y.Offset, 0)
+        originalSize.Parent = mainWindow
+    end
+    mainWindow.Size = UDim2.new(0, mainWindow.OriginalSize.Value.X * scale, 0, mainWindow.OriginalSize.Value.Y * scale)
+end)
+
+local about = announcement:section("公告类",true) 
+local WorkScriptLabel = about:Label("工脚本")
+RainbowFont(WorkScriptLabel)
 local lbl1 = about:Label("嘿 还在等什么 快点点你的第一个功能吧") 
 RainbowFont(lbl1)
 local lbl2 = about:Label("作者QQ号:3850851895")
@@ -340,9 +643,9 @@ RainbowFont(lbl7)
 local lbl8 = about:Label("倒卖的掉全家")
 RainbowFont(lbl8)
 
-local about = announcement:section("作者",true) -- 分类内功能分类
+local about = announcement:section("作者",true) 
 
-about:Button("复制作者QQ号",function() -- （单点类）
+about:Button("复制作者QQ号",function() 
     setclipboard("3850851895")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -353,7 +656,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制作者用户名",function() -- （单点类）
+about:Button("复制作者用户名",function() 
     setclipboard("SchoolBasmw")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -364,7 +667,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制作者b站uid",function() -- （单点类）
+about:Button("复制作者b站uid",function() 
     setclipboard("UID:3546871024847491")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -375,7 +678,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = main:section("玩家属性",true) -- 分类内功能分类
+local about = main:section("玩家属性",true) 
 
 about:Slider("移动速度", "WalkSpeed", game.Players.LocalPlayer.Character.Humanoid.WalkSpeed, 16, 400, false, function(Speed)
 spawn(function() while task.wait() do game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Speed end end)
@@ -391,6 +694,10 @@ end)
 
 about:Slider('玩家血量值', 'Sliderflag',  100, 0, 100,false, function(Value)
     game.Players.LocalPlayer.Character.Humanoid.Health = Value
+end)
+
+credits:Slider('玩家血量值上限', 'Sliderflag',  120, 120, 6000,false, function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.MaxHealth = Value
 end)
 
 about:Slider('相机焦距上限', 'ZOOOOOM OUT!',  128, 128, 200000,false, function(Value)
@@ -432,6 +739,10 @@ about:Toggle("开启快速跑步", "switch", false, function(enabled)
     sudu:Disconnect()
     sudu = nil
   end
+end)
+
+about:Slider('高度', 'Slider', 2, 2, 9999,false, function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = Value
 end)
 
 about:Slider("玩家头部大小", "Head", 1, 0, 1000, false, function(headSize)
@@ -525,7 +836,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = main:section("其他",true) -- 分类内功能分类
+local about = main:section("其他",true) 
 
 about:Toggle("夜视","Toggle",false,function(value)
 if value then
@@ -549,11 +860,11 @@ about:Toggle("穿墙", "NoClip", false, function(NC)
   local Workspace = game:GetService("Workspace") local Players = game:GetService("Players") if NC then Clipon = true else Clipon = false end Stepped = game:GetService("RunService").Stepped:Connect(function() if not Clipon == false then for a, b in pairs(Workspace:GetChildren()) do if b.Name == Players.LocalPlayer.Name then for i, v in pairs(Workspace[Players.LocalPlayer.Name]:GetChildren()) do if v:IsA("BasePart") then v.CanCollide = false end end end end else Stepped:Disconnect() end end)
     end)
 
-about:Button("自杀",function() -- （单点类）
+about:Button("自杀",function() 
     game.Players.LocalPlayer.Character.Humanoid.Health=0
 end)
 
-about:Button("踏空",function() -- （单点类）
+about:Button("踏空",function() 
     loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
 end)
 
@@ -572,7 +883,7 @@ about:Toggle("自动互动", "Auto Interact", false, function(state)
                         fireproximityprompt(descendant)
                     end
                 end
-                task.wait(0.25) -- Adjust the wait time as needed
+                task.wait(0.25) 
             end
         else
             autoInteract = false
@@ -593,7 +904,7 @@ about:Toggle("循环恢复血量","Toggle",false,function(Value)
     end
 end)
 
-about:Button("相机滑动模糊",function() -- （单点类）
+about:Button("相机滑动模糊",function() 
 local camera = workspace.CurrentCamera
 local blurAmount = 10
 local blurAmplifier = 5
@@ -621,7 +932,7 @@ runService.Heartbeat:Connect(function()
 end)
 end)
 
-about:Button("演都不演了",function() -- （单点类）
+about:Button("演都不演了",function() 
 local IMAGE_ID = "rbxassetid://131499184387795"
 local IMAGE_RES = UDim2.fromOffset(200, 200)
 local MOVE_SPEED = 250
@@ -668,11 +979,11 @@ game:GetService("RunService").Heartbeat:Connect(function(Delta)
 end)
 end)
     
-about:Button("工飞行",function() -- （单点类）
+about:Button("工飞行",function() 
     loadstring(game:HttpGet("https://pastebin.com/raw/s2GMt9YZ"))()
 end)
 
-about:Button("工飞车",function() -- （单点类）
+about:Button("工飞车",function() 
     loadstring(game:HttpGet("https://pastebin.com/raw/8J9zquZS"))()
 end)
     
@@ -806,7 +1117,7 @@ about:Dropdown("帧率FPS", "CameraType", {
   end
 end)
 
-about:Button("f3x",function() -- （单点类）
+about:Button("f3x",function() 
     loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
@@ -825,11 +1136,11 @@ about:Toggle("获取所有玩家背包道具", "GetBackPack", false, function(en
   end
 end)
 
-about:Button("聊天气泡美化",function() -- （单点类）
+about:Button("聊天气泡美化",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/4M1NrMnc.txt"))()
 end)
 
-about:Button("一键偷取所有人物品",function() -- （单点类）
+about:Button("一键偷取所有人物品",function() 
     for i,v in pairs (game.Players:GetChildren()) do
 wait()
 for i,b in pairs (v.Backpack:GetChildren()) do
@@ -846,7 +1157,7 @@ if Value then
     end
 	end)
 
-about:Button("坐",function(Value) -- （单点类）
+about:Button("坐",function(Value) 
 if Value then
       game.Players.LocalPlayer.Character.Humanoid.Sit = true
     else
@@ -872,15 +1183,15 @@ if Value then
   end
 end)
 
-about:Button("爬墙",function() -- （单点类）
+about:Button("爬墙",function() 
     loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
 end)
 
-about:Button("离开游戏",function() -- （单点类）
+about:Button("离开游戏",function() 
     game:Shutdown()
 end)
 
-about:Button("人物螺旋上天",function() -- （单点类）
+about:Button("人物螺旋上天",function() 
     loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
 end)
 
@@ -940,19 +1251,19 @@ about:Toggle("五颜六色建筑", "BasePart", false, function(enabled)
   end
 end)
 
-about:Button("键盘",function() -- （单点类）
+about:Button("键盘",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 
-about:Button("按键键盘",function() -- （单点类）
+about:Button("按键键盘",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/RedZenXYZ/4d80bfd70ee27000660e4bfa7509c667/raw/da903c570249ab3c0c1a74f3467260972c3d87e6/KeyBoard%2520From%2520Ohio%2520Fr%2520Fr"))()
 end)
 
-about:Button("Delta键盘",function() -- （单点类）
+about:Button("Delta键盘",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt", true))()
 end)
 
-about:Button("最好用的电脑键盘",function() -- （单点类）
+about:Button("最好用的电脑键盘",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/KlielScriptx/Universal-Keyboard/refs/heads/main/Universal%20Keyboard%20Script.lua"))()
 end)
 
@@ -1090,222 +1401,230 @@ about:Toggle("杀戮光环", "Toggle", false, function(enabled)
     Run = false
   end
 end)
-       
-local about = tools:section("工具类",true) -- 分类内功能分类
 
-about:Button("快速Console后台",function() -- （单点类）
+about:Toggle("秒杀有血的NPC", "BasePart", false, function(Value)
+if Value then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/WSbuq/-/main/killNPC"))()
+    else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/WSbuq/-/main/killNPC1"))()
+     end
+end)
+       
+local about = tools:section("工具类",true) 
+
+about:Button("快速Console后台",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/控制台.lua"))()
 end)
 
-about:Button("中文Infinite yield",function() -- （单点类）
+about:Button("中文Infinite yield",function() 
     loadstring(game:HttpGet(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,87,97,110,103,122,104,101,104,97,111,104,47,102,108,121,45,97,119,97,121,47,109,97,105,110,47,37,69,54,37,56,67,37,56,55,37,69,52,37,66,66,37,56,65,37,69,52,37,66,56,37,65,68,37,69,54,37,57,54,37,56,55,46,116,120,116})end)())))()
 end)
 
-about:Button("英文Infinite yield",function() -- （单点类）
+about:Button("英文Infinite yield",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end)    
-about:Button("汉化Dex",function() -- （单点类）
+about:Button("汉化Dex",function() 
     loadstring(game:HttpGet("https://gitee.com/cmbhbh/cmbh/raw/master/Bex.lua"))()
 end)
 
-about:Button("dex++",function() -- （单点类）
+about:Button("dex++",function() 
     loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
 end)
 
-local about = tools:section("彩色",true) -- 分类内功能分类
+local about = tools:section("彩色",true) 
 
 
-about:Button("无故少侠飞行r6",function() -- （单点类）
+about:Button("无故少侠飞行r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E6%97%A0%E6%95%8C%E5%B0%91%E4%BE%A0%E9%A3%9E%E8%A1%8Cr6.txt"))()
 end)
 
-about:Button("无故少侠飞行r15",function() -- （单点类）
+about:Button("无故少侠飞行r15",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Invinicible-Flight-R15-45414"))()
 end)
 
-about:Button("防摔落伤害 (跟敌少侠飞行配合)",function() -- （单点类）
+about:Button("防摔落伤害 (跟敌少侠飞行配合)",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/cytj777i/Fall-injury/main/防止摔落伤害"))()
 end)
 
-local about = Tube9178:section("刀子🐔吧",true) -- 分类内功能分类
-about:Button("撸🐔吧r6",function() -- （单点类）
+local about = Tube9178:section("刀子🐔吧",true) 
+about:Button("撸🐔吧r6",function() 
     loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
 end)
 
-about:Button("撸🐔吧r15",function() -- （单点类）
+about:Button("撸🐔吧r15",function() 
     loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 end)
 
-about:Button("后入r15",function() -- （单点类）
+about:Button("后入r15",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/R15%E5%90%8E%E5%85%A5.txt"))()
 end)
 
-about:Button("后入r6",function() -- （单点类）
+about:Button("后入r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/R6%E5%90%8E%E5%85%A5.txt"))()
 end)
 
-about:Button("被操r15",function() -- （单点类）
+about:Button("被操r15",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/%E8%A2%AB%E6%93%8DR15.txt"))()
 end)
 
-about:Button("被操r6",function() -- （单点类）
+about:Button("被操r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/r6%E8%A2%AB%E6%93%8D.txt"))()
 end)
 
-about:Button("亲🐔吧r15",function() -- （单点类）
+about:Button("亲🐔吧r15",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/R15%E8%B5%A4%E5%A3%81%E6%88%96%E9%9B%86.txt"))()
 end)
 
-about:Button("亲🐔吧r6",function() -- （单点类）
+about:Button("亲🐔吧r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/R6%E8%B5%A4%E5%A3%81%E6%88%96%E9%B8%A1.txt"))()
 end)
 
-about:Button("让别人亲🐔吧r15",function() -- （单点类）
+about:Button("让别人亲🐔吧r15",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/R15%E8%AE%A9%E5%88%AB%E4%BA%BA%E7%BB%99%E4%BD%A0%E5%8F%A3.txt"))()
 end)
 
-about:Button("让别人亲🐔吧r6",function() -- （单点类）
+about:Button("让别人亲🐔吧r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/kenk/refs/heads/main/R6%E8%AE%A9%E5%88%AB%E4%BA%BA%E7%BB%99%E4%BD%A0%E5%8F%A3.txt"))()
 end)
 
 
-about:Button("爱的抱抱r6",function() -- （单点类）
+about:Button("爱的抱抱r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/Animations/refs/heads/main/Front%20and%20Back%20Hug%20Tool"))()
 end)
 
-about:Button("操人GUI",function() -- （单点类）
+about:Button("操人GUI",function() 
     loadstring(game:HttpGet("https://pastebin.com/raw/hkyuHQ7Y"))();
 end)
 
-local about = ScriptHub:section("脚本",true) -- 分类内功能分类
+local about = ScriptHub:section("脚本",true) 
 
-about:Button("皮脚本",function() -- （单点类）
+about:Button("皮脚本",function() 
     getgenv().XiaoPi="皮脚本QQ群1002100032" loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua"))()
 end)
 
-about:Button("叶脚本",function() -- （单点类）
+about:Button("叶脚本",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/roblox-ye/QQ515966991/refs/heads/main/ROBLOX-CNVIP-XIAOYE.lua"))()
 end)
 
-about:Button("沙脚本",function() -- （单点类）
+about:Button("沙脚本",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/114514lzkill/ShaHUB/refs/heads/main/ShaHUB"))()
 --QQ群1026924908
 end)
 
-about:Button("殺脚本",function() -- （单点类）
+about:Button("殺脚本",function() 
     FengYu_HUB = "殺脚本"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/FengYu-3/FengYu/refs/heads/Feng/QQ1926190957"))()
 end)
 
-about:Button("AX HUB",function() -- （单点类）
+about:Button("AX HUB",function() 
     loadstring(game:HttpGet("https://raw.gitcode.com/Xingtaiduan/Scripts/raw/main/Loader.lua"))()
 end)
 
-about:Button("龙脚本(破解版)",function() -- （单点类）
+about:Button("龙脚本(破解版)",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/nahida-cn/Roblox/main/long"))()
 end)
 
-about:Button("导管中心",function() -- （单点类）
+about:Button("导管中心",function() 
     loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\117\115\101\114\97\110\101\119\114\102\102\47\114\111\98\108\111\120\45\47\109\97\105\110\47\37\69\54\37\57\68\37\65\49\37\69\54\37\65\67\37\66\69\37\69\53\37\56\68\37\56\70\37\69\56\37\65\69\37\65\69\34\41\41\40\41\10")()
 end)
 
-about:Button("安脚本",function() -- （单点类）
+about:Button("安脚本",function() 
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/wucan114514/gegeyxjb/main/oww')))()
 end)
 
-about:Button("Rb脚本中心",function() -- （单点类）
+about:Button("Rb脚本中心",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Yungengxin/roblox/refs/heads/main/Rb-Hub"))()
 end)
 
-about:Button("情云中心",function() -- （单点类）
+about:Button("情云中心",function() 
     loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
 end)
 
-about:Button("落叶中心",function() -- （单点类）
+about:Button("落叶中心",function() 
     getgenv().LS="落叶中心" loadstring(game:HttpGet("https://raw.githubusercontent.com/krlpl/Deciduous-center-LS/main/%E8%90%BD%E5%8F%B6%E4%B8%AD%E5%BF%83%E6%B7%B7%E6%B7%86.txt"))()
 end)
 
-about:Button("林脚本(破解版)",function() -- （单点类）
+about:Button("林脚本(破解版)",function() 
     AL = "Advanced Logic团队破解"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/longshu886/longscript/main/linpojie"))()
 end)
 
-local about = ScriptHub:section("黑客gui类",true) -- 分类内功能分类
+local about = ScriptHub:section("黑客gui类",true) 
 
-about:Button("c00igui",function() -- （单点类）
+about:Button("c00igui",function() 
      loadstring(game:HttpGet("'https://rawscripts.net/raw/Universal-Script-coolkid-gui-15453"))()
 end)
 
-local about = Action:section("r6",true) -- 分类内功能分类
+local about = Action:section("r6",true) 
 
-about:Button("动作播放器r6",function() -- （单点类）
+about:Button("动作播放器r6",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-R6-Animations-Menu-By-Me-19427"))()
 end)
 
-about:Button("动作播放器r6",function() -- （单点类）
+about:Button("动作播放器r6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ShutUpJamesTheLoserAlt/fe/refs/heads/main/fdes"))()
 end)
 
-about:Button("动作r6",function() -- （单点类）
+about:Button("动作r6",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Epik-dancezzzzz-r6-reanimation-57423"))()
 end)
 
-about:Button("水晶舞 (修改版)",function() -- （单点类）
+about:Button("水晶舞 (修改版)",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Solary-3/Scripts/refs/heads/main/Choose.lua"))()
 end)
 
-about:Button("水晶舞 V3",function() -- （单点类）
+about:Button("水晶舞 V3",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/somethingsimade/KDV3-Fixed/refs/heads/main/KrystalDance3"))()
 end)
 
-about:Button("格斗动作",function() -- （单点类）
+about:Button("格斗动作",function() 
     loadstring(game:HttpGet("https://github.com/Sinister-Scripts/Roblox-Exploits/raw/refs/heads/main/FE-Fighter-Cracked"))()
 end)
 
-about:Button("防护动作",function() -- （单点类）
+about:Button("防护动作",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/IdkRandomUsernameok/PublicAssets/refs/heads/main/Releases/MUI.lua"))()
 end)
 
-about:Button("装酷r6",function() -- （单点类）
+about:Button("装酷r6",function() 
     loadstring(game:HttpGet("https://pastefy.app/YJITpCRA/raw"))() 
 end)
 
-about:Button("自定义坐姿势",function() -- （单点类）
+about:Button("自定义坐姿势",function() 
     loadstring(game:HttpGet(('https://pastefy.app/XKxQtK2K/raw'),true))()
 end)
 
-local about = Action:section("r15",true) -- 分类内功能分类
+local about = Action:section("r15",true) 
 
-about:Button("动作播放器r15",function() -- （单点类）
+about:Button("动作播放器r15",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxten-Keyes/music/refs/heads/main/music%23%5Bscripts%5D/music%23%5Bmiscellaneous%5D/music%23%5Bfe%20r15%20animation%20player%5D.lua"))()
 end)
 
-about:Button("车动作",function() -- （单点类）
+about:Button("车动作",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-FE-SILLY-CAR-V1-48227"))()
 end)
 
-about:Button("动画和表情",function() -- （单点类）
+about:Button("动画和表情",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-AFEM-14048"))()
 end)
 
-about:Button("舞蹈",function() -- （单点类）
+about:Button("舞蹈",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Gazer-Ha/Free-emote/refs/heads/main/Delta%20mad%20stuffs"))()
 end)
 
-about:Button("900个动作",function() -- （单点类）
+about:Button("900个动作",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Rootleak/roblox/refs/heads/main/main.lua"))()
 end)
 
-about:Button("所有Roblox动作r15",function() -- （单点类）
+about:Button("所有Roblox动作r15",function() 
      loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-7yd7-I-Emote-Script-48024"))()
 end)
 
 
-about:Button("倒立行走r15",function() -- （单点类）
+about:Button("倒立行走r15",function() 
     loadstring(game:HttpGet("https://pastebin.com/raw/C2ixw5i9"))()
 end)
 
-local about = esp:section("ESP",true) -- 分类内功能分类
+local about = esp:section("ESP",true) 
 
 about:Toggle("人物显示4", "RWXS", false, function(RWXS)
     getgenv().enabled = RWXS getgenv().filluseteamcolor = true getgenv().outlineuseteamcolor = true getgenv().fillcolor = Color3.new(1, 0, 0) getgenv().outlinecolor = Color3.new(1, 1, 1) getgenv().filltrans = 0.5 getgenv().outlinetrans = 0.5 loadstring(game:HttpGet("https://raw.githubusercontent.com/Vcsk/RobloxScripts/main/Highlight-ESP.lua"))()
@@ -1361,7 +1680,7 @@ about:Toggle("Circle ESP", "ESP", false, function(state)
         end
     end)
 
-local about = music:section("正常🤓",true) -- 分类内功能分类
+local about = music:section("正常🤓",true) 
 
 about:Dropdown("复制", "Dropdown",{
     "防空警报",
@@ -1386,7 +1705,7 @@ setclipboard("99498025749186")
      end
 end)
 
-about:Button("防空警报",function() -- （单点类）
+about:Button("防空警报",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://792323017"
     sound.Parent = game.Workspace
@@ -1399,7 +1718,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("义勇军进行曲",function() -- （单点类）
+about:Button("义勇军进行曲",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://1845918434"
     sound.Parent = game.Workspace
@@ -1412,7 +1731,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("彩虹瀑布",function() -- （单点类）
+about:Button("彩虹瀑布",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://1837879082"
     sound.Parent = game.Workspace
@@ -1425,7 +1744,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("雨中牛郎",function() -- （单点类）
+about:Button("雨中牛郎",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://16831108393"
     sound.Parent = game.Workspace
@@ -1438,7 +1757,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("布吉岛",function() -- （单点类）
+about:Button("布吉岛",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://1838111377"
     sound.Parent = game.Workspace
@@ -1452,7 +1771,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("起风了DJ",function() -- （单点类）
+about:Button("起风了DJ",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://99498025749186"
     sound.Parent = game.Workspace
@@ -1465,7 +1784,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-local about = music:section("猎奇😨",true) -- 分类内功能分类
+local about = music:section("猎奇😨",true) 
 
 about:Dropdown("复制", "Dropdown",{
     "猴叫",
@@ -1487,7 +1806,7 @@ setclipboard("74856563303589")
     end
 end)
 
-about:Button("猴叫",function() -- （单点类）
+about:Button("猴叫",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://7196237097"
     sound.Parent = game.Workspace
@@ -1501,7 +1820,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("笑死",function() -- （单点类）
+about:Button("笑死",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://4857572997"
     sound.Parent = game.Workspace
@@ -1514,7 +1833,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("米老鼠",function() -- （单点类）
+about:Button("米老鼠",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://8491769438"
     sound.Parent = game.Workspace
@@ -1527,7 +1846,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("齐天大圣",function() -- （单点类）
+about:Button("齐天大圣",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://8195914641"
     sound.Parent = game.Workspace
@@ -1540,7 +1859,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("压力",function() -- （单点类）
+about:Button("压力",function() 
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://74856563303589"
     sound.Parent = game.Workspace
@@ -1554,7 +1873,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = music:section("恐怖😱",true) -- 分类内功能分类
+local about = music:section("恐怖😱",true) 
 
 about:Dropdown("复制", "Dropdown",{
     "串稀(全损音质)",
@@ -1582,7 +1901,7 @@ setclipboard("4203251375")
     end
 end)
 
-about:Button("串稀(全损音质)",function() -- （单点类）
+about:Button("串稀(全损音质)",function() 
      local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://6445594239" 
      sound.Parent = game.Workspace 
@@ -1596,7 +1915,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("串稀",function() -- （单点类）
+about:Button("串稀",function() 
        local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://4809574295" 
      sound.Parent = game.Workspace 
@@ -1610,7 +1929,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("钢管落地(全损音质)",function() -- （单点类）
+about:Button("钢管落地(全损音质)",function() 
 local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://6729922069" 
      sound.Parent = game.Workspace 
@@ -1624,7 +1943,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("钢管落地",function() -- （单点类）
+about:Button("钢管落地",function() 
 local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://6011094380" 
      sound.Parent = game.Workspace 
@@ -1638,7 +1957,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("骂人",function() -- （单点类）
+about:Button("骂人",function() 
 local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://7334239757" 
      sound.Parent = game.Workspace 
@@ -1652,7 +1971,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("你他妈劈我瓜是吧",function() -- （单点类）
+about:Button("你他妈劈我瓜是吧",function() 
 local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://7309604510" 
      sound.Parent = game.Workspace 
@@ -1666,7 +1985,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("苹果闹钟",function() -- （单点类）
+about:Button("苹果闹钟",function() 
 local sound = Instance.new("Sound") 
      sound.SoundId = "rbxassetid://4203251375" 
      sound.Parent = game.Workspace 
@@ -1821,6 +2140,7 @@ local function toggleLowHealthPriority(v)
     isLowHealthPriority = v
 end
 
+about:Label("fw自瞄是KG脚本的🤓")
 
 about:Toggle("自瞄", "开关", false, function(v)
     toggleAiming(v)
@@ -1888,11 +2208,11 @@ about:Dropdown("自瞄圈颜色", "Dropdown", {"红色", "黄色", "绿色", "�
     end
 end)
 
-about:Button("自瞄1",function() -- （单点类）
+about:Button("自瞄1",function() 
     loadstring(game:HttpGet("https://pastebin.com/raw/RZK9XdtH"))()
 end)
 
-about:Button("自瞄2",function() -- （单点类）
+about:Button("自瞄2",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Aimbot-Mobile-34677"))()
 end)
 
@@ -1902,7 +2222,7 @@ end)
 
 local about = AimbotToBulleTtracking:section("子踪",true)
 
-about:Button("子弹追踪1",function() -- （单点类）
+about:Button("子弹追踪1",function() 
     loadstring(game:HttpGet("https://atlasteam.live/silentaim"))()
 end)
 
@@ -2158,34 +2478,34 @@ getgenv().BackDistance = 5
 
 local RunService = game:GetService("RunService")
 
-local about = fling:section("甩飞类",true) -- 分类内功能分类
+local about = fling:section("甩飞类",true) 
 
-about:Button("防甩飞",function() -- （单点类）
+about:Button("防甩飞",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ChinaQY/Scripts/Main/AntiFling.lua"))()
 end)
 
-about:Button("旋转甩飞",function() -- （单点类）
+about:Button("旋转甩飞",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%97%8B%E8%BD%AC.lua"))()
 end)
 
-about:Button("铁拳甩飞",function() -- （单点类）
+about:Button("铁拳甩飞",function() 
     loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'))()
 end)
 
-about:Button("选人甩飞",function() -- （单点类）
+about:Button("选人甩飞",function() 
     loadstring(game:HttpGet("https://pastefy.app/A8Kfs9KV/raw", true))()
 end)
 
-about:Button("甩飞中心",function() -- （单点类）
+about:Button("甩飞中心",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/3LD4D0/OP-FLING-GUI/c1fd15bf3114e6c9e4b76951b7d516c123836efe/OP%20FLING%20GUI%20R6%20AND%20R15"))()
 end)
 
-about:Button("甩飞工具r6",function() -- （单点类）
+about:Button("甩飞工具r6",function() 
     loadstring(game:HttpGet(('https://pastefy.app/'..'aV9OfBP4'..'/raw'),true))()
 end)
 
-local about = fling:section("Infinite yield甩飞指令",true) -- 分类内功能分类
-about:Button("复制甩飞指令1",function() -- （单点类）
+local about = fling:section("Infinite yield甩飞指令",true) 
+about:Button("复制甩飞指令1",function() 
     setclipboard("flyfling")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2196,7 +2516,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制甩飞指令2",function() -- （单点类）
+about:Button("复制甩飞指令2",function() 
     setclipboard("invisfling")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2207,39 +2527,39 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = fling:section("棍棒球",true) -- 分类内功能分类
+local about = fling:section("棍棒球",true) 
 
-about:Button("棍棒球",function() -- （单点类）
+about:Button("棍棒球",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty44.lua"))()
 end)
 
-about:Button("复制免费配饰 (凹凸世界)",function() -- （单点类）
+about:Button("复制免费配饰 (凹凸世界)",function() 
     setclipboard("https://www.roblox.com/catalog/7548993875/Slasher")
 end)
 
-about:Button("复制付费",function() -- （单点类）
+about:Button("复制付费",function() 
     setclipboard("https://www.roblox.com/catalog/12433640377/Baseball-Bat")
 end)
 
-local about = fling:section("其他",true) -- 分类内功能分类
+local about = fling:section("其他",true) 
 
-about:Button("杰森甩飞",function() -- （单点类）
+about:Button("杰森甩飞",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/6203b323781cfb0a7ad35e4e9f60e026/raw/222815c2a4f6ffe38f8ae3965f6b3640c180ab4c/Jason.lua"))()
 end)
 
-about:Button("酷小孩甩飞",function() -- （单点类）
+about:Button("酷小孩甩飞",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/qwertys/refs/heads/main/qwerty2.lua"))()
 end)
 
-local about = vr:section("vr",true) -- 分类内功能分类
+local about = vr:section("vr",true) 
 
-about:Button("伪vr",function() -- （单点类）
+about:Button("伪vr",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty45.lua"))()
 end)
 
-local about = vr:section("免费手",true) -- 分类内功能分类
+local about = vr:section("免费手",true) 
 
-about:Button("复制免费手1",function() -- （单点类）
+about:Button("复制免费手1",function() 
     setclipboard("https://www.roblox.com/catalog/3398308134")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2249,7 +2569,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("复制免费手2",function() -- （单点类）
+about:Button("复制免费手2",function() 
     setclipboard("https://www.roblox.com/catalog/3443038622")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2260,9 +2580,9 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = vr:section("付费菜鸟手",true) -- 分类内功能分类
+local about = vr:section("付费菜鸟手",true) 
 
-about:Button("复制付费菜鸟手1",function() -- （单点类）
+about:Button("复制付费菜鸟手1",function() 
     setclipboard("https://www.roblox.com/catalog/18641077392")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2272,7 +2592,7 @@ CoreGui:SetCore("SendNotification", {
     Icon = "rbxassetid://131499184387795"
 })
 end)
-about:Button("复制付费菜鸟手2",function() -- （单点类）
+about:Button("复制付费菜鸟手2",function() 
     setclipboard("https://www.roblox.com/catalog/18641142410")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2283,9 +2603,9 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = vr:section("付费白手",true) -- 分类内功能分类
+local about = vr:section("付费白手",true) 
 
-about:Button("复制付费白手1",function() -- （单点类）
+about:Button("复制付费白手1",function() 
     setclipboard("https://www.roblox.com/catalog/90960046381276")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2296,7 +2616,7 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-about:Button("复制付费白手2",function() -- （单点类）
+about:Button("复制付费白手2",function() 
     setclipboard("https://www.roblox.com/catalog/102599402682100")
     local CoreGui = game:GetService("StarterGui")
 CoreGui:SetCore("SendNotification", {
@@ -2307,138 +2627,138 @@ CoreGui:SetCore("SendNotification", {
 })
 end)
 
-local about = GenesisFE:section("创世纪",true) -- 分类内功能分类
+local about = GenesisFE:section("创世纪",true) 
 
-about:Button("加特林",function() -- （单点类）
+about:Button("加特林",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Minigun"))()
 end)
 
-about:Button("拳击手",function() -- （单点类）
+about:Button("拳击手",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Gale%20Fighter"))()
 end)
 
-about:Button("圣剑",function() -- （单点类）
+about:Button("圣剑",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Neptunian%20V"))()
 end)
 
-about:Button("AK47",function() -- （单点类）
+about:Button("AK47",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/AK-47"))()
 end)
 
-about:Button("封禁之锤",function() -- （单点类）
+about:Button("封禁之锤",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Ban%20Hammer"))()
 end)
 
-about:Button("放逐者",function() -- （单点类）
+about:Button("放逐者",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Banisher"))()
 end)
 
-about:Button("亲爱的姐妹",function() -- （单点类）
+about:Button("亲爱的姐妹",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Dearsister"))()
 end)
 
-about:Button("大风战士",function() -- （单点类）
+about:Button("大风战士",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Gale%20Fighter"))()
 end)
 
-about:Button("死",function() -- （单点类）
+about:Button("死",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Goner"))()
 end)
 
-about:Button("好警察坏警察",function() -- （单点类）
+about:Button("好警察坏警察",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Good%20Cop%20Bad%20Cop"))()
 end)
 
-about:Button("卡兰比特",function() -- （单点类）
+about:Button("卡兰比特",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Karambit"))()
 end)
 
-about:Button("闪电炮",function() -- （单点类）
+about:Button("闪电炮",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Lightning%20Cannon"))()
 end)
 
-about:Button("连身剑",function() -- （单点类）
+about:Button("连身剑",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Linked%20Sword"))()
 end)
 
-about:Button("转轮机枪",function() -- （单点类）
+about:Button("转轮机枪",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Minigun"))()
 end)
 
-about:Button("摩托车",function() -- （单点类）
+about:Button("摩托车",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Motorcycle"))()
 end)
 
-about:Button("海王星五号",function() -- （单点类）
+about:Button("海王星五号",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Neptunian%20V"))()
 end)
 
-about:Button("傀儡师",function() -- （单点类）
+about:Button("傀儡师",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Puppet%20Master"))()
 end)
 
-about:Button("虐待狂种族灭绝",function() -- （单点类）
+about:Button("虐待狂种族灭绝",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Sadist%20Genocider"))()
 end)
 
-about:Button("罪恶龙",function() -- （单点类）
+about:Button("罪恶龙",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Sin%20Dragon"))()
 end)
 
-about:Button("狙击手",function() -- （单点类）
+about:Button("狙击手",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Sniper"))()
 end)
 
-about:Button("工作室假人",function() -- （单点类）
+about:Button("工作室假人",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Studio%20Dummy"))()
 end)
 
 
-local about = MelonFE:section("Melon",true) -- 分类内功能分类
+local about = MelonFE:section("Melon",true) 
 
-about:Button("不朽领主",function() -- （单点类）
+about:Button("不朽领主",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/342631416698bc733c93dbce1fc43371/raw/5b506412e72fbc1b9e9730ae7f096d33bf06e128/ImmortalityLord.lua"))()
 end)
 
-about:Button("大锤近战",function() -- （单点类）
+about:Button("大锤近战",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/bc7a020c542be0b7f528a5d8fda5ad52/raw/0db8993dc638613bd91b10fdbceb5c2d0754711e/SledgeHammer.lua"))()
 end)
 
-about:Button("杰森",function() -- （单点类）
+about:Button("杰森",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/6203b323781cfb0a7ad35e4e9f60e026/raw/222815c2a4f6ffe38f8ae3965f6b3640c180ab4c/Jason.lua"))()
 end)
 
-about:Button("反派本色",function() -- （单点类）
+about:Button("反派本色",function() 
     loadstring(game:HttpGet(('https://gist.githubusercontent.com/axelinharlem182/1ee425c9d850af697f8c3cb108a9d816/raw/c4660b01faf4db266e8031e310121a65836f98a7/The%2520Villain'),true))()
 end)
 
-about:Button("内部战台",function() -- （单点类）
+about:Button("内部战台",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/20eeb7c97303b19d6079b35de1e71df4/raw/129bb5c45933671097386bcd9d944ab4e7ecc55b/InternalWar.lua"))()
 end)
 
-about:Button("速度之星",function() -- （单点类）
+about:Button("速度之星",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/e75f359fee8f18a171962df8c020ed95/raw/7106700d10ec2efc084b8879048dca72f86a10e7/KyusEnder.lua"))()
 end)
 
-about:Button("地平线加农炮",function() -- （单点类）
+about:Button("地平线加农炮",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/34653df65434cbbbc36b3ec51d03e7a3/raw/8bd9ef0ad4495baa06f435629b562a103eaf2bf8/HorizonLC"))()
 end)
 
-about:Button("机枪手",function() -- （单点类）
+about:Button("机枪手",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/e7b408abcb813525d37e9b7a6bf301c9/raw/6421f9000e90e8a4c2ed57052208acbd6f9648dd/Minigun.txt"))()
 end)
 
-about:Button("消色差",function() -- （单点类）
+about:Button("消色差",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/1e606bc885a3c12fd50bc8f29ae6ac49/raw/6f2e187cc59818d2a308bdd055ae2a93bf2fcb64/Achromatic.lua"))()
 end)
 
-about:Button("虚空领主怪物",function() -- （单点类）
+about:Button("虚空领主怪物",function() 
     loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/679dc6167ec854831759f495b970cc71/raw/9663b65e4df1fa491f1227aee8cbea43cbfe04d8/VoidBoss.lua"))()
 end)
 
-local about = hitbox:section("快捷调",true) -- 分类内功能分类
+local about = hitbox:section("快捷调",true) 
 
-about:Button("通用范围hitbox1",function() -- （单点类）
+about:Button("通用范围hitbox1",function() 
     loadstring(game:HttpGet("https://pastefy.app/ItfO0tdg/raw"))()
 end)
 
@@ -2448,7 +2768,7 @@ about:Button("超大范围",function()_G.HeadSize=100 _G.Disabled=true if _G.Dis
 about:Button("终极范围",function()_G.HeadSize=200 _G.Disabled=true if _G.Disabled then for i,v in next,game:GetService('Players'):GetPlayers()do if v.Name~=game:GetService('Players').LocalPlayer.Name then pcall(function()v.Character.HumanoidRootPart.Size=Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)v.Character.HumanoidRootPart.Transparency=0.7 v.Character.HumanoidRootPart.BrickColor=BrickColor.new("Really blue")v.Character.HumanoidRootPart.Material="Neon"v.Character.HumanoidRootPart.CanCollide=false end)end end end end)
 about:Button("全图范围",function()_G.HeadSize=400 _G.Disabled=true if _G.Disabled then for i,v in next,game:GetService('Players'):GetPlayers()do if v.Name~=game:GetService('Players').LocalPlayer.Name then pcall(function()v.Character.HumanoidRootPart.Size=Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)v.Character.HumanoidRootPart.Transparency=0.7 v.Character.HumanoidRootPart.BrickColor=BrickColor.new("Really blue")v.Character.HumanoidRootPart.Material="Neon"v.Character.HumanoidRootPart.CanCollide=false end)end end end end)
 
-local about = hitbox:section("自定义",true) -- 分类内功能分类
+local about = hitbox:section("自定义",true) 
 
 about:Textbox("自定义范围", "HitBox", "输入", function(Value)
     _G.HeadSize = tonumber(Value)
@@ -2548,7 +2868,7 @@ about:Button("范围300",function()_G.HeadSize=300 _G.Disabled=true if _G.Disabl
 about:Button("范围400",function()_G.HeadSize=400 _G.Disabled=true if _G.Disabled then for i,v in next,game:GetService('Players'):GetPlayers()do if v.Name~=game:GetService('Players').LocalPlayer.Name then pcall(function()v.Character.HumanoidRootPart.Size=Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)v.Character.HumanoidRootPart.Transparency=0.7 v.Character.HumanoidRootPart.BrickColor=BrickColor.new("Really blue")v.Character.HumanoidRootPart.Material="Neon"v.Character.HumanoidRootPart.CanCollide=false end)end end end end)
 about:Button("范围500",function()_G.HeadSize=500 _G.Disabled=true if _G.Disabled then for i,v in next,game:GetService('Players'):GetPlayers()do if v.Name~=game:GetService('Players').LocalPlayer.Name then pcall(function()v.Character.HumanoidRootPart.Size=Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)v.Character.HumanoidRootPart.Transparency=0.7 v.Character.HumanoidRootPart.BrickColor=BrickColor.new("Really blue")v.Character.HumanoidRootPart.Material="Neon"v.Character.HumanoidRootPart.CanCollide=false end)end end end end)
 
-local about = shadow:section("光影",true) -- 分类内功能分类
+local about = shadow:section("光影",true) 
 
 about:Button("光影", function()
   loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
@@ -2839,7 +3159,7 @@ about:Button("旋转550", function()
     velocity.Name = "Spinbot"
 end)
 
-local about = TeleportPlayerToflings:section("传送",true) -- 分类内功能分类
+local about = TeleportPlayerToflings:section("传送",true) 
 local selectedPlayer = nil
 local playerList = {}
 local playerDropdown
@@ -2879,26 +3199,23 @@ about:Button("刷新列表", function()
 })
 end)
 
-about:Button("查看玩家", function()
-    if selectedPlayer then
-        game.Workspace.CurrentCamera.CameraSubject = selectedPlayer.Character.Humanoid
-    end
-    Notification:Notify(
+about:Toggle("查看玩家", 'Toggleflag', false, function(state)
+    if state then
+        game:GetService('Workspace').CurrentCamera.CameraSubject =
+            game:GetService('Players'):FindFirstChild(playerDropdown).Character.Humanoid
+Notification:Notify(
         {Title = "工脚本", Description = "已查看玩家"},
         {OutlineColor = Color3.fromRGB(0, 0, 0),Time = 9, Type = "image"},
         {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(258, 58, 68)})
-end)
-
-about:Button("停止查看", function()
-    local localPlayer = game.Players.LocalPlayer
-    if localPlayer.Character and localPlayer.Character:FindFirstChild("Humanoid") then
-        game.Workspace.CurrentCamera.CameraSubject = localPlayer.Character.Humanoid
-    end
-    Notification:Notify(
+    else
+Notification:Notify(
         {Title = "工脚本", Description = "已停止查看玩家"},
         {OutlineColor = Color3.fromRGB(0, 0, 0),Time = 9, Type = "image"},
         {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(258, 58, 68)})
-end) 
+        local lp = game.Players.LocalPlayer
+        game:GetService('Workspace').CurrentCamera.CameraSubject = lp.Character.Humanoid
+    end
+end)
 
 about:Button("传送玩家", function()
     if selectedPlayer and selectedPlayer.Character and selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
@@ -3015,7 +3332,7 @@ about:Toggle("循环传送至玩家后面", "LoopBackTP", false, function(state)
     end
 end)
 
-local about = TeleportPlayerToflings:section("甩飞",true) -- 分类内功能分类
+local about = TeleportPlayerToflings:section("甩飞",true) 
 
 about:Button("甩飞被选中的人", function()
     local Player = game:GetService("Players").LocalPlayer
@@ -3549,51 +3866,51 @@ end)
 
 getgenv().LoopFlingEnabled = false
 
-local about = Robux:section("Robux",true) -- 分类内功能分类
+local about = Robux:section("Robux",true) 
 
 about:Label("这些Robux都是能用的😍")
 
-about:Button("无限Robux",function() -- （单点类）
+about:Button("无限Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("230Robux",function() -- （单点类）
+about:Button("230Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("400Robux",function() -- （单点类）
+about:Button("400Robux",function() 
  game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("650Robux",function() -- （单点类）
+about:Button("650Robux",function() 
  game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("800Robux",function() -- （单点类）
+about:Button("800Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("1500Robux",function() -- （单点类）
+about:Button("1500Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("4600Robux",function() -- （单点类）
+about:Button("4600Robux",function() 
  game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("9400Robux",function() -- （单点类）
+about:Button("9400Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("19500Robux",function() -- （单点类）
+about:Button("19500Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("60000Robux",function() -- （单点类）
+about:Button("60000Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
-about:Button("1500000Robux",function() -- （单点类）
+about:Button("1500000Robux",function() 
 game.Players.LocalPlayer:Kick("不是老弟🤣 你还真点🤣做梦去吧孩子")
 end)
 
@@ -3601,7 +3918,7 @@ about:Label("不是老弟🤣你还真点🤣我直接拿那个筷子和那个�
 
 local about = hack:section("黑客",true)
 
-about:Button("Tubers93黑客入侵",function() -- （单点类）
+about:Button("Tubers93黑客入侵",function() 
 local Message = "服务器被Tubers93入侵了!!!!!!!!!!!!!!!"
 local mes2text = "Tubers93入侵了服务器!!!!!!!!!!"
 
@@ -3667,21 +3984,21 @@ for i, v in pairs(workspace:GetDescendants()) do
 end
 	end)
 
-about:Button("播放Tubers93音乐",function() -- （单点类）
+about:Button("播放Tubers93音乐",function() 
     local sound = Instance.new("Sound", workspace)
 sound.SoundId = "rbxassetid://6129291390"
 sound:Play()
 sound.Volume = 100
 end)
 
-about:Button("播放Tubers93说话",function() -- （单点类）
+about:Button("播放Tubers93说话",function() 
     local sound = Instance.new("Sound", workspace)
 sound.SoundId = "rbxassetid://7153945201"
 sound:Play()
 sound.Volume = 100
 end)
 
-about:Button("播放Tubers93弹窗",function() -- （单点类）
+about:Button("播放Tubers93弹窗",function() 
 local sound = Instance.new("Sound", workspace)
 sound.SoundId = "rbxassetid://6129291390"
 sound:Play()
@@ -3720,7 +4037,7 @@ wait(5)
 hideImageNotification()
 	end)
 	
-about:Button("修改天空盒-Tubers93",function() -- （单点类）
+about:Button("修改天空盒-Tubers93",function() 
     local sky = Instance.new("Sky")
 		sky.CelestialBodiesShown = false
 		sky.Parent = game.Lighting
@@ -3732,7 +4049,7 @@ about:Button("修改天空盒-Tubers93",function() -- （单点类）
 		sky.SkyboxFt = "http://www.roblox.com/asset/?id=4891344370"
 end)	
 
-about:Button("修改天空盒-工脚本",function() -- （单点类）
+about:Button("修改天空盒-工脚本",function() 
     local sky = Instance.new("Sky")
 		sky.CelestialBodiesShown = false
 		sky.Parent = game.Lighting
@@ -3746,7 +4063,7 @@ end)
 
 local about = Kid:section("儿子",true)
 
-about:Button("生成儿子",function() -- （单点类）
+about:Button("生成儿子",function() 
 loadstring(game:HttpGet("https://pastebin.com/raw/9xvkjB6Z"))()
 end)
 
@@ -3765,21 +4082,21 @@ about:Label("不要盯我")
 
 local about = BackDoor:section("后门执行器",true)
 
-about:Button("LALOL-Hub",function() -- （单点类）
+about:Button("LALOL-Hub",function() 
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Its-LALOL/LALOL-Hub/main/Backdoor-Scanner/script'))()
 end)
 
-about:Button("BackDoor.exe V6",function() -- （单点类）
+about:Button("BackDoor.exe V6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/v6x/source.lua"))()
 end)
 
-about:Button("CET",function() -- （单点类）
+about:Button("CET",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Executor-Tests/refs/heads/main/Environment/Test.lua"))()
 end)
 
 local about = InfiniteyieldCommand:section("Infinite yield",true)
 
-about:Button("Infinite yield",function() -- （单点类）
+about:Button("Infinite yield",function() 
     loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))();
 end)
 
@@ -3824,7 +4141,7 @@ about:Label("GoTo [用户名] : 玩家传送")
 
 local about = Executant:section("注入器",true)
 
-about:Button("Delta",function() -- （单点类）
+about:Button("Delta",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Solary-3/Scripts/refs/heads/main/Delta.lua"))()
 end)
 
@@ -3832,15 +4149,15 @@ about:Button("阿尔宙斯V3", function()
   loadstring(game:HttpGet([[https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20X%20V3]]))()
 end)
 
-about:Button("Codex",function() -- （单点类）
+about:Button("Codex",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Solary-3/Scripts/refs/heads/main/Codex.lua"))()
 end)
 
-about:Button("AppleWara",function() -- （单点类）
+about:Button("AppleWara",function() 
     loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-AppleWare-Executor-Ui-33190"))()
 end)
 
-about:Button("Nebula",function() -- （单点类）
+about:Button("Nebula",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Solary-3/Scripts/refs/heads/main/Nebula.lua"))()
 end)
 
@@ -4465,13 +4782,13 @@ task.spawn(function()
     end
   end)
 
-local about = NaturalDisasterSurvival:section("自然灾害",true) -- 分类内功能分类
+local about = NaturalDisasterSurvival:section("自然灾害",true) 
 
 about:Toggle("自动胜利", "ToggleInfo", false, function(bool)
     _G.autowinfarm = bool;
     while wait(.1) do
         if _G.autowinfarm == true then
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-285.239502, 185.332703, 347.289581, 0.768330932, 0.4829759, -0.420002222, 0, 0.656199336, 0.754587591, 0.640052795, -0.579773009, 0.504178226)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-236, 180, 360, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         end
 end
 end)
@@ -4692,21 +5009,74 @@ spawn(animateOutline)
 RS:BindToRenderStep(name, 1, step)
 end)
 
-local about = NaturalDisasterSurvival:section("传送", true) -- 分类内功能分类
+local about = NaturalDisasterSurvival:section("传送", true) 
 
 about:Button("地图",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-68.1344452, 53.1492348, -7.29726553, -0.813139081, -0.186660677, 0.551328003, 0, 0.947185993, 0.320684612, -0.582069337, 0.260761201, -0.770194054)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-115.828506, 65.4863434, 18.8461514, 0.00697017973, 0.0789371505, -0.996855199, -3.13589936e-07, 0.996879458, 0.0789390653, 0.999975681, -0.000549906865, 0.00694845384)
 end)
 
 about:Button("赏台",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-285.239502, 185.332703, 347.289581, 0.768330932, 0.4829759, -0.420002222, 0, 0.656199336, 0.754587591, 0.640052795, -0.579773009, 0.504178226)
 end)
 
-about:Button("秘密基地",function() -- （单点类）
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5052.53857, 271.877899, 6070.04834, -0.768330097, -0.357614934, 0.530829966, 0, 0.82935214, 0.55872637, -0.640053809, 0.429286301, -0.63721621)    
+about:Button("产卵塔",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-280, 170, 341, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
 
-local about = NaturalDisasterSurvival:section("移除灾难", true) -- 分类内功能分类
+local about = NaturalDisasterSurvival:section("灾难", true) 
+
+about:Toggle("预测灾害", "t", false, function(val)
+		nextdis = val
+
+		while wait(1) and nextdis do
+			local SurvivalTag = plr.Character:FindFirstChild("SurvivalTag")
+			if SurvivalTag then
+				if SurvivalTag.Value == "Blizzard" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：暴风雪"
+				elseif SurvivalTag.Value == "Sandstorm" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：沙尘暴"
+				elseif SurvivalTag.Value == "Tornado" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：龙卷风"
+				elseif SurvivalTag.Value == "Volcanic Eruption" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：火山"
+				elseif SurvivalTag.Value == "Flash Flood" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：洪水"
+				elseif SurvivalTag.Value == "Deadly Virus" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：病毒"
+				elseif SurvivalTag.Value == "Tsunami" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：海啸"
+				elseif SurvivalTag.Value == "Acid Rain" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：酸雨"
+				elseif SurvivalTag.Value == "Fire" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：火焰"
+				elseif SurvivalTag.Value == "Meteor Shower" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：流星雨"
+				elseif SurvivalTag.Value == "Earthquake" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：地震"
+				elseif SurvivalTag.Value == "Thunder Storm" and nextdis then
+					Message.Visible = true
+					Message.Text = "下一个灾难是：暴风雨"
+				else
+					Message.Visible = false
+				end
+			end
+		end
+	end)
+
+about:Button("预判灾害/Console后台打印",function()
+warn(game.Players.LocalPlayer.Character.SurvivalTag.Value)
+end)
 
 about:Button("移除灾难界面-沙尘暴",function()
 game.Players.LocalPlayer.PlayerGui.BlizzardGui:destroy()
@@ -4720,32 +5090,32 @@ about:Button("移除灾难界面-龙卷风",function()
 game.Players.LocalPlayer.PlayerGui.TornadoGui:destroy()
 end)
 
-local about = NaturalDisasterSurvival:section("黑洞脚本", true) -- 分类内功能分类
+local about = NaturalDisasterSurvival:section("黑洞脚本", true) 
 
-about:Button("超级环 v1",function() -- （单点类）
+about:Button("超级环 v1",function() 
      loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V1.lua"))()   
 end)
 
-about:Button("超级环 v3",function() -- （单点类）
+about:Button("超级环 v3",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V3.lua"))()
 end)
 
-about:Button("超级环 v4",function() -- （单点类）
+about:Button("超级环 v4",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V4.lua"))()
 end)
 
-about:Button("超级环 v5",function() -- （单点类）
+about:Button("超级环 v5",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V5.lua"))()
 end)
 
-about:Button("超级环 v6",function() -- （单点类）
+about:Button("超级环 v6",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Super-Ring-V6.lua"))()
 end)
 
-about:Button("磁铁环 v2",function() -- （单点类）
+about:Button("磁铁环 v2",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Magnet-Ring-V2.lua"))()
 end)
 
-about:Button("哥特风环 v1",function() -- （单点类）
+about:Button("哥特风环 v1",function() 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/javaKL666/Super-ring-Script/refs/heads/main/Gothic-Ring-V1.lua"))()
 end)
