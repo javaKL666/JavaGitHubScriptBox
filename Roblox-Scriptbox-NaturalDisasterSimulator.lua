@@ -1,3 +1,6 @@
+
+wait(3)
+
 -- =======<Kick>=======  
 local bannedlist = {
       "pro_xx863",  

@@ -1,6 +1,6 @@
 local GameList = {
 
-[65241] = "loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Infinite-yield-73483'))()",
+[65241] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/javaKL666/WorkScriptBox/refs/heads/main/Roblox-Scriptbox-NaturalDisasterSimulator.lua'))()",
 }
 
 local GameName = {
